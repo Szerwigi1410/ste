@@ -5,7 +5,7 @@
 #include "stuff.hpp"
 using namespace std;
 
-int main() {
+int main(int argc, char* argv[]) {
 	string tosave;
 	string in;
 	string qest;
@@ -14,6 +14,17 @@ int main() {
 	string fileNem;
 
 	bool IsWorking = true;
+	//args
+	ifstream inputa(argv[1]);
+	if(inputa.fail()) {
+		cout << BOLD << RED << "Couldn't open the file: " << RESET << argv[1] << endl;
+	}
+	else {
+		cout << BOLD << argv[1] << ":"<< RESET << endl;
+			while (getline(inputa, tosave)) {
+				cout << tosave << endl;
+			}
+	}
 
 	while (IsWorking == true) {
 		getline(cin, in);
